@@ -83,8 +83,17 @@
             box-shadow: none;
         }
 
+        .custom-btn {
+            font-size: 14px;
+            /* Tamanho da fonte desejado */
+        }
 
-
+        .custom-btn.active {
+            background-color: #28a745;
+            /* Cor de fundo quando clicado */
+            color: white;
+            /* Cor do texto quando clicado */
+        }
     </style>
     <link rel="icon" href="/images/ico2.ico" type="image/x-icon">
     <title>Dinheirinho</title>
@@ -103,7 +112,7 @@
                 style="background-color: #5d816500; display:flex; justify-content:center; align-items:center;">
                 <h1 style="font-size: 25px; text-align:center; color:white; ">Controle de Finanças Pessoais</h1>
             </div>
-            
+
             <div class="col"
                 style="background-color: #e8b45400; display:flex; justify-content:right; padding-right: 5%">
 
@@ -133,10 +142,10 @@
     </nav>
 
     <div class="row"
-        style="background-color: rgb(255, 255, 255); padding-top: 2%; display: flex; justify-content:center;">
+        style="background-color: rgba(194, 24, 24, 0); padding-top: 2%; display: flex; justify-content:center; ">
 
 
-        <div class="card" style="width: 20rem; background-color:#37a69200; margin:0%; padding:0%">
+        <div class="card" style="width: 18rem; background-color:#37a69200; margin-left: 2%; padding:0%">
             <div style="background-color: #77AF51; text-align: center; padding-top:8%">
                 <p style="font-weight: 600; font-size: 18px; margin-bottom: 0%; color:rgb(255, 255, 255);">Banco
                     inter</p>
@@ -152,7 +161,7 @@
                 <p style="margin-bottom: 2%; padding-left: 1%; ">Saldo Atual</p>
 
                 <div class="row"
-                    style="background-color: rgb(255, 255, 255); margin-left: 1%; margin-right:3%; padding-bottom: -15%; border-style: solid;  border-width: 1px; border-radius: 5px; border-color:#77AF51 ">
+                    style="background-color: rgb(255, 255, 255); margin-left: 1%; margin-right:3%; padding-bottom: -15%; border-style: solid;  border-width: 1px; border-radius: 5px; border-color:#77af51 ">
                     <div class="col" style="background-color: rgba(255, 255, 0, 0);">
                         <p
                             style="font-size: 20px; background-color: rgba(137, 43, 226, 0); margin-bottom: 0%; padding-top:15%;">
@@ -169,7 +178,7 @@
 
             </div>
 
-            <div class="card-body" style="background-color: #C8F4B3; border-bottom: 1px solid #77AF51;">
+            <div class="card-body" style="background-color: #C8F4B3; border-bottom: 1px solid #9c51af;">
 
                 <p style="margin-bottom: 2%; padding-left: 1%; ">Saldo final do mês anterior</p>
 
@@ -197,24 +206,66 @@
 
         <!--Area dos cards -->
 
-        <div style="background-color: rgba(255, 255, 0, 0); padding: 0%; margin-left: 1%; width: 72%; height: 480px; border-style:solid; border-radius:10px; border-color: #77AF51"
+        <div style="background-color: rgba(255, 255, 0, 0); padding: 0%; margin-left: 1%; width: 75%; height: 480px; border-style:solid; border-radius:10px; border-color: #77af51; justify-content:center;"
             id="areaDosCards">
 
-            <div style="background-color:rgba(0, 0, 255, 0); text-align: right; font-size:20px;">
-                <button id="closeButton"
-                    style="border-style: none; border-radius:2px; padding-left:12px; padding-right:12px; background-color:rgb(255, 207, 207); color:rgb(65, 65, 65)">X</button>
-            </div>
 
-            <div class="container" style="background-color: rgba(17, 102, 102, 0); padding:0%">
+
+            <div class="container" style="background-color: rgba(17, 102, 102, 0); padding:0%; margin-top: 2%">
+
+                <div class="row" style="background-color: rgba(177, 230, 31, 0); margin: 0%;">
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Janeiro</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Fevereiro</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Março</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Abril</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Maio</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Junho</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Julho</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Agosto</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Setembro</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Outubro</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Novembro</button>
+                    <button type="button" class="btn btn-outline-success custom-btn"
+                        onclick="handleButtonClick(this)">Dezembro</button>
+                    <div style="background-color:rgba(0, 0, 255, 0); text-align: right; font-size:20px;">
+                        <button id="closeButton"
+                            style="border-style: none; border-radius:2px; padding-left:12px; padding-right:12px; background-color:#cf525c; color:rgb(255, 255, 255); ">X</button>
+                    </div>
+                </div>
+                <script>
+                    function handleButtonClick(button) {
+                        // Desmarcar todos os botões
+                        var buttons = document.querySelectorAll('.custom-btn');
+                        buttons.forEach(function (btn) {
+                            btn.classList.remove('active');
+                        });
+
+                        // Marcar o botão clicado como ativo
+                        button.classList.add('active');
+                    }
+                </script>
+
+
 
                 <div class="row" style="background-color: rgba(137, 43, 226, 0); margin: 0%;">
                     <div class="col" style="align-self:flex-end; background-color: #5bcc8e00">
                         <h1 style="font-size: 20px; font-weight:600; color:#2a994f">RECEITAS</h1>
                     </div>
-                    <div class="col text-right" style="background-color: rgba(153, 205, 50, 0); margin-top: 3%;">
+                    <div class="col text-right" style="background-color: rgba(153, 205, 50, 0); margin-top: 1%;">
                         <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                            <p style="margin-bottom: 0;">Escolher data</p>
-                            <input type="date">
+                            <p style="margin-bottom: 0; color:#646464">Escolher data</p>
+                            <input type="date" style="color: #646464;">
                         </div>
                     </div>
 
@@ -231,7 +282,7 @@
                                 <th scope="col">Forma de recebimento</th>
                                 <th scope="col" class="descricao-col">Descrição</th>
                                 <th scope="col">Valor</th>
-                                <th scope="col">Ações</th>
+                                <th scope="col"> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -268,7 +319,7 @@
                                 <th scope="col">Forma de pagamento</th>
                                 <th scope="col">Descrição</th>
                                 <th scope="col">Valor</th>
-                                <th scope="col">Ações</th>
+                                <th scope="col"> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -281,7 +332,7 @@
 
 
 
-        
+
 
 
         <script>
@@ -347,6 +398,28 @@
                                     .catch(error => console.error(error));
                             });
                         });
+
+
+
+
+
+                        // Adicionar evento de clique aos botões de edição
+                        document.querySelectorAll('.edit-btn').forEach(btn => {
+                            btn.addEventListener('click', () => {
+                                const id = btn.closest('tr').getAttribute('data-id');
+                                // Implemente a lógica de edição aqui
+                                // Você pode abrir um formulário de edição com os detalhes do lançamento correspondente
+                                console.log('Editar lançamento com ID:', id);
+                            });
+                        });
+
+
+
+
+
+
+
+
 
                         const updateSaldo = () => {
                             const saldoAtual = totalReceita - totalDespesa;
