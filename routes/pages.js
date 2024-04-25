@@ -120,14 +120,14 @@ router.get('/recuperaSenha', (req, res) => {
                         messageResetPassword: 'Verifique seu e-mail, um link de redefinição de senha foi enviado'
                         
                     });*/
-                    /*return res.status(200).render('login', {
-                        messageResetPassword: `Verifique seu e-mail, um link de redefinição de senha foi enviado para ${resetPasswordLink}`
-                    });
+/*return res.status(200).render('login', {
+    messageResetPassword: `Verifique seu e-mail, um link de redefinição de senha foi enviado para ${resetPasswordLink}`
+});
 
-                }
-            });
-        });
-    });
+}
+});
+});
+});
 });*/
 
 
@@ -164,11 +164,14 @@ router.post('/recuperaSenha', (req, res) => {
                 to: user.email,
                 subject: 'Redefinição de Senha',
                 //html: `Seu link de redefinição de senha é: <a href="${resetPasswordLink}">${resetPasswordLink}</a>`
-                html: `Seu link de redefinição de senha é: https://localhost:5000/redefinirSenha/
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`
+                html: `
+                <p>Seus links de redefinição de senha:</p>
+                <p><a href="https://localhost:5000/redefinirSenha/">Link Localhost</a></p>
+                <p><a href="https://dinheirinho.cleverapps.io/redefinirSenha/">Link CleverApps</a></p>
+                `
             };
 
-                    
+
 
 
 
@@ -190,7 +193,7 @@ router.post('/recuperaSenha', (req, res) => {
                     return res.status(500).send('Erro ao enviar e-mail de recuperação de senha');
                 } else {
                     console.log('E-mail enviado:', info.response);
-                    
+
                     // Renderiza a página de login com a mensagem informando sobre o envio do link de redefinição de senha
                     return res.status(200).render('login', {
                         messageResetPassword: `Verifique seu e-mail, um link de redefinição de senha foi enviado para ${user.email}`
