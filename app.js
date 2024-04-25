@@ -46,6 +46,6 @@ app.use('/auth', require('./routes/auth'));
 
 app.listen(8080, () => {
     //app.listen(5000, () => {
-    console.log("Servidor iniciado na porta 5000");
+    console.log("Servidor iniciado na porta 8080");
 })
 
