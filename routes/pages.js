@@ -164,7 +164,8 @@ router.post('/recuperaSenha', (req, res) => {
                 to: user.email,
                 subject: 'Redefinição de Senha',
                 //html: `Seu link de redefinição de senha é: <a href="${resetPasswordLink}">${resetPasswordLink}</a>`
-                html: `Seu link de redefinição de senha é: https://localhost:5000/redefinirSenha/`
+                html: `Seu link de redefinição de senha é: https://localhost:5000/redefinirSenha/
+                Seu link de redefinição de senha é: https://dinheirinho.cleverapps.io/redefinirSenha/`
             };
 
                     
