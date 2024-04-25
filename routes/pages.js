@@ -56,7 +56,7 @@ router.get('/recuperaSenha', (req, res) => {
 
 
 
-router.post('/recuperaSenha', (req, res) => {
+/*router.post('/recuperaSenha', (req, res) => {
     const { email } = req.body;
     const token = crypto.randomBytes(20).toString('hex');
     const expiryDate = new Date();
@@ -120,7 +120,7 @@ router.post('/recuperaSenha', (req, res) => {
                         messageResetPassword: 'Verifique seu e-mail, um link de redefinição de senha foi enviado'
                         
                     });*/
-                    return res.status(200).render('login', {
+                    /*return res.status(200).render('login', {
                         messageResetPassword: `Verifique seu e-mail, um link de redefinição de senha foi enviado para ${resetPasswordLink}`
                     });
 
@@ -128,7 +128,79 @@ router.post('/recuperaSenha', (req, res) => {
             });
         });
     });
+});*/
+
+
+
+router.post('/recuperaSenha', (req, res) => {
+    const { email } = req.body;
+    const token = crypto.randomBytes(20).toString('hex');
+    const expiryDate = new Date();
+    expiryDate.setHours(expiryDate.getHours() + 5); // Token válido por 5 horas
+
+    db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
+        if (err) {
+            return res.status(500).send('Erro interno do servidor');
+        }
+        if (results.length === 0) {
+            return res.status(404).send('E-mail não encontrado');
+        }
+        const user = results[0];
+        user.resetToken = token;
+        user.resetTokenExpiry = expiryDate;
+        db.query('UPDATE users SET resetToken = ?, resetTokenExpiry = ? WHERE id = ?', [token, expiryDate, user.id], (err) => {
+            if (err) {
+                return res.status(500).send('Erro interno do servidor');
+            }
+
+            // Após armazenar o token no banco de dados, envie o e-mail
+            const resetPasswordLink = `https://dinheirinho.cleverapps.io/redefinirSenha/${token}`;
+            const mailOptions = {
+                from: {
+                    name: 'Dinheirinho',
+                    address: 'emanuelparente@live.com'
+                },
+                to: user.email,
+                subject: 'Redefinição de Senha',
+                html: `Seu link de redefinição de senha é: <a href="${resetPasswordLink}">${resetPasswordLink}</a>`
+            };
+
+            transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                    console.error('Erro ao enviar e-mail:', err);
+                    return res.status(500).send('Erro ao enviar e-mail de recuperação de senha');
+                } else {
+                    console.log('E-mail enviado:', info.response);
+                    
+                    // Renderiza a página de login com a mensagem informando sobre o envio do link de redefinição de senha
+                    return res.status(200).render('login', {
+                        messageResetPassword: `Verifique seu e-mail, um link de redefinição de senha foi enviado para ${user.email}`
+                    });
+                }
+            });
+        });
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get('/redefinirSenha/:token', (req, res) => {
     res.render('redefinirSenha');
