@@ -167,7 +167,7 @@ router.post('/recuperaSenha', (req, res) => {
                 html: `
                 <p>Seus links de redefinição de senha:</p>
                 <p><a href="https://localhost:5000/redefinirSenha/">Link Localhost</a></p>
-                <p><a href="https://dinheirinho.cleverapps.io/redefinirSenha/">Link CleverApps</a></p>
+                <p><a href="https://google.com.br/">Link Google</a></p>
                 `
             };
 
