@@ -43,7 +43,7 @@ router.get('/home', verifyToken, (req, res) => {
 const transporter = nodemailer.createTransport({
     host: 'smtp-mail.outlook.com',
     port: 587,
-    secure: false, // true para SSL
+    secure: true, // true para SSL
     auth: {
         user: 'emanuelparente@live.com',
         pass: 'fcsiaoquynxsscap'
@@ -80,7 +80,7 @@ router.post('/recuperaSenha', (req, res) => {
             // Após armazenar o token no banco de dados, envie o e-mail
             //const resetPasswordLink = `http://app_1c4b791e-a92f-4f8e-9e4f-acafd633f015/redefinirSenha/${token}`;
             //const resetPasswordLink = `http://localhost:5000/redefinirSenha/${token}`;
-            
+
             const resetPasswordLink = `https://dinheirinho.cleverapps.io/redefinirSenha/${token}`;
 
 
@@ -91,7 +91,7 @@ router.post('/recuperaSenha', (req, res) => {
                 },
                 to: user.email,
                 subject: 'Redefinição de Senha',
-    
+
                 html: `
                     
                 <div style="background-color: #689948; padding: 50px; margin: 0 200px; text-align: center; border-radius: 3px; font-family: 'Poppins', sans-serif;">
@@ -123,7 +123,7 @@ router.post('/recuperaSenha', (req, res) => {
                     return res.status(200).render('login', {
                         messageResetPassword: `Verifique seu e-mail, um link de redefinição de senha foi enviado para ${resetPasswordLink}`
                     });
-                    
+
                 }
             });
         });
