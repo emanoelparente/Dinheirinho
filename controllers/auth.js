@@ -2,7 +2,7 @@ const mysql = require("mysql");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-//conexão com banco de dados
+//conexão com banco de dados...teste
 const db = mysql.createConnection({
     host: process.env.MYSQL_ADDON_HOST,
     database: process.env.MYSQL_ADDON_DB,
