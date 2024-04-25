@@ -176,7 +176,8 @@ router.post('/recuperaSenha', (req, res) => {
                 html: `
                     <h1> https://localhost:5000/redefinirSenha/${token} </h1>
 
-                    <p> Teste teste </p>
+                    <p> Teste teste <a href="https://dinheirinho.cleverapps.io/redefinirSenha/${token}">link</a> direcionando para o seguinte endereço: https://dinheirinho.cleverapps.io/redefinirSenha/${token}</p>
+
                 `
             };
             
