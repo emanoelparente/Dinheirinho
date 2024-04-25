@@ -79,6 +79,8 @@ router.get('/recuperaSenha', (req, res) => {
 
             // Após armazenar o token no banco de dados, envie o e-mail
             //const resetPasswordLink = `http://app_1c4b791e-a92f-4f8e-9e4f-acafd633f015/redefinirSenha/${token}`;
+            https://app_1c4b791e-a92f-4f8e-9e4f-acafd633f015/
+            https://app_1c4b791e-a92f-4f8e-9e4f-acafd633f015
             //const resetPasswordLink = `http://localhost:5000/redefinirSenha/${token}`;
 
             const resetPasswordLink = `https://dinheirinho.cleverapps.io/redefinirSenha/${token}`;
@@ -167,7 +169,7 @@ router.post('/recuperaSenha', (req, res) => {
                 html: `
                 <p>Seus links de redefinição de senha:</p>
                 <p><a href="https://localhost:5000/redefinirSenha/">Link Localhost</a></p>
-                <p><a href="https://google.com.br/">Link Google</a></p>
+                <p><a href="https://dinheirinho.cleverapps.io/">Link Clever</a></p>
                 `
             };
 
