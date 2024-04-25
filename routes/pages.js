@@ -154,7 +154,7 @@ router.post('/recuperaSenha', (req, res) => {
             }
 
             // Após armazenar o token no banco de dados, envie o e-mail
-            const resetPasswordLink = `https://localhost:5000/redefinirSenha/${token}`;
+            const resetPasswordLink = `https://redefinirSenha/${token}`;
             const mailOptions = {
                 from: {
                     name: 'Dinheirinho',
