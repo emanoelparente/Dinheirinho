@@ -42,8 +42,8 @@ router.get('/home', verifyToken, (req, res) => {
 
 const transporter = nodemailer.createTransport({
     host: 'smtp-mail.outlook.com',
-    port: 465, //587 para false no secure
-    secure: true, // true para SSL
+    port: 587, //587 para false no secure
+    secure: false, // true para SSL
     auth: {
         user: 'emanuelparente@live.com',
         pass: 'fcsiaoquynxsscap'
