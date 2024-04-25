@@ -174,7 +174,9 @@ router.post('/recuperaSenha', (req, res) => {
                 to: user.email,
                 subject: 'Redefinição de Senha',
                 html: `
-                    <h1> https://dinheirinho.cleverapps.io/redefinirSenha/${token} </h1>
+                    <!-- <h1> https://dinheirinho.cleverapps.io/redefinirSenha/${token} </h1> -->
+
+                    <p> Teste teste </p>
                 `
             };
             
