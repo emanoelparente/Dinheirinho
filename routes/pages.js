@@ -79,7 +79,8 @@ router.post('/recuperaSenha', (req, res) => {
 
             // Após armazenar o token no banco de dados, envie o e-mail
             //const resetPasswordLink = `http://app_1c4b791e-a92f-4f8e-9e4f-acafd633f015/redefinirSenha/${token}`;
-            const resetPasswordLink = `http://localhost:5000/redefinirSenha/${token}`;
+            //const resetPasswordLink = `http://localhost:5000/redefinirSenha/${token}`;
+            const resetPasswordLink = `http://dinheirinho.cleverapps.io`;
             //const resetPasswordLink = `https://dinheirinho.cleverapps.io/redefinirSenha/${token}`;
 
 
@@ -90,7 +91,7 @@ router.post('/recuperaSenha', (req, res) => {
                 },
                 to: user.email,
                 subject: 'Redefinição de Senha',
-                text: `Você solicitou a redefinição de senha. Clique no link para redefinir sua senha: ${resetPasswordLink}`,
+    
                 html: `
                     
                 <div style="background-color: #689948; padding: 50px; margin: 0 200px; text-align: center; border-radius: 3px; font-family: 'Poppins', sans-serif;">
