@@ -157,7 +157,7 @@ router.post('/recuperaSenha', (req, res) => {
 
             // Após armazenar o token no banco de dados, envie o e-mail
 
-            const resetPasswordLink = `https://appdinheirinho.com.br/redefinirSenha/${token}`;
+            const resetPasswordLink = `https://www.appdinheirinho.com.br/redefinirSenha/${token}`;
             
             
             const mailOptions = {
