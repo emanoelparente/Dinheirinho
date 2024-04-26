@@ -157,8 +157,8 @@ router.post('/recuperaSenha', (req, res) => {
 
             // Após armazenar o token no banco de dados, envie o e-mail
 
-            //const resetPasswordLink = `https://app-62b17961-20f4-41de-b78e-daeb8a213bd9.cleverapps.io/redefinirSenha/${token}`;
-            const resetPasswordLink = token;
+            const resetPasswordLink = `https://appdinheirinho.com.br/redefinirSenha/${token}`;
+            
             
             const mailOptions = {
                 from: {
@@ -167,7 +167,17 @@ router.post('/recuperaSenha', (req, res) => {
                 },
                 to: user.email,
                 subject: 'Redefinição de Senha',
-                html: `Seu link de redefinição de senha é: <a href="https://appdinheirinho.com.br/redefinirSenha">https://appdinheirinho.com.br/redefinirSenha</a>`
+                html: `<div style="background-color: #689948; padding: 50px; margin: 0 200px; text-align: center; border-radius: 3px; font-family: 'Poppins', sans-serif;">
+                        <img src="/images/logo-dinheirinho-letra-branca.png" alt="Ilustração" style="max-width: 100%; height: auto;">
+                        <h1 style="color: #fff; font-size: 20px; line-height: 30px; padding-bottom: 30px; padding-top: 20px;">Você solicitou a redefinição de senha no Dinheirinho</h1>
+                        <p style="color: #fff;font-size: 15px;">Por favor, clique no botão abaixo para redefinir sua senha</p>
+                        <a href="${resetPasswordLink}" style="text-decoration: none;">
+                            <button style="background-color: #fff; color: #77AF51; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px;">REDEFINIR SENHA</button>
+                        </a>
+                        <br>
+                        <p style="color: #fff; padding-top: 30px; line-height: 30px; font-size: 15px;">Se o botão acima não estiver funcionando, você pode clicar nesse link logo abaixo: </p>
+                        <div style = "background-color: #fff">${resetPasswordLink}<div>
+                    </div>`
                 
             };
 
