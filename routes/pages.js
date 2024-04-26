@@ -167,7 +167,7 @@ router.post('/recuperaSenha', (req, res) => {
                 },
                 to: user.email,
                 subject: 'Redefinição de Senha',
-                html: `Seu link de redefinição de senha é: <a href="https://app-62b17961-20f4-41de-b78e-daeb8a213bd9.cleverapps/redefinirSenha">https://app-62b17961-20f4-41de-b78e-daeb8a213bd9.cleverapps/redefinirSenha</a>`
+                html: `Seu link de redefinição de senha é: <a href="https://appdinheirinho.com.br/redefinirSenha">https://appdinheirinho.com.br/redefinirSenha</a>`
                 
             };
 
@@ -224,7 +224,7 @@ router.post('/recuperaSenha', (req, res) => {
 
 
 
-router.get('/redefinirSenha/:token', (req, res) => {
+router.get('redefinirSenha/:token', (req, res) => {
     res.render('redefinirSenha');
 });
 
